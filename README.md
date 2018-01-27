@@ -1,42 +1,29 @@
-## Sentiment Analysis Using fastText
+# Getting started with Python on Google Cloud Platform
 
-This simple flask app predict reviews ratings (1 to 5). The text classification algorithm is based on fastText (see References).
+[![Build Status](https://travis-ci.org/GoogleCloudPlatform/getting-started-python.svg)](https://travis-ci.org/GoogleCloudPlatform/getting-started-python)
 
-Here is how the app looks like:
+This repository is the complete sample code for the [Python Getting Started on Google Cloud Platform](http://cloud.google.com/python) tutorials. Please refer to the tutorials for instructions on configuring, running, and deploying these samples.
 
-![ui-demo]
-(images/ui-demo.png)
+The code for the samples is contained in individual folders in this repository.
 
-### Requirement
-```
-pip install -r requirements.txt
-```
+Note that 7-gce is the final version of the project, including the complete Bookshelf app on Managed VMs in addition to scripts to alternatively deploy on GCE.
 
-### Data
 
-Amazon reviews from 1995 to 2013 are used for training. They can be downloaded from [here](https://archive.org/details/amazon-reviews-1995-2013). Downloaded zip file is put under the folder data/amazon/. Run the following command to process the data
+Tutorial | Folder
+---------|-------
+[Hello world](https://cloud.google.com/python/getting-started/hello-world) | [1-hello-world](https://github.com/GoogleCloudPlatform/getting-started-python/tree/master/1-hello-world)
+[Structured data](https://cloud.google.com/python/getting-started/using-structured-data) | [2-structured-data](https://github.com/GoogleCloudPlatform/getting-started-python/tree/master/2-structured-data)
+[Cloud Storage](https://cloud.google.com/python/getting-started/using-cloud-storage) | [3-binary-data](https://github.com/GoogleCloudPlatform/getting-started-python/tree/master/3-binary-data)
+[Authenticating users](https://cloud.google.com/python/getting-started/authenticate-users) | [4-auth](https://github.com/GoogleCloudPlatform/getting-started-python/tree/master/4-auth)
+[Logging app events](https://cloud.google.com/python/monitor-and-debug/logging-application-events) | [5-logging](https://github.com/GoogleCloudPlatform/getting-started-python/tree/master/5-logging)
+[Using Cloud Pub/Sub](https://cloud.google.com/python/getting-started/using-pub-sub) | [6-pubsub](https://github.com/GoogleCloudPlatform/getting-started-python/tree/master/6-pubsub)
+[Deploying to Google Compute Engine](https://cloud.google.com/python/getting-started/run-on-compute-engine) | [7-gce](https://github.com/GoogleCloudPlatform/getting-started-python/tree/master/7-gce)
 
-```
-python data_loder.py
-```
+## Contributing changes
 
-### Train fastText model
+* See [CONTRIBUTING.md](CONTRIBUTING.md)
 
-The classificaiton can be trained using:
 
-```
-python train_model.py
-```
+## Licensing
 
-### Run app
-
-To run the flask app, simply type:
-
-```
-python app.py
-```
-
-### References
-
-- https://research.facebook.com/blog/fasttext/
-- https://github.com/facebookresearch/fastText
+* See [LICENSE](LICENSE)

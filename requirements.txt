@@ -1,3 +1,0 @@
-Flask>=0.10.1
-fasttext>=0.8.2
-Cython>=0.24
