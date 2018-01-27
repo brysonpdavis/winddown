@@ -1,0 +1,4 @@
+# Credentials for Natural Language Understanding
+URL=https://gateway.watsonplatform.net/natural-language-understanding/api
+USERNAME=cc411bee-f7b8-4969-9f10-501267ec4114
+PASSWORD=lSz6SunK5F1i
