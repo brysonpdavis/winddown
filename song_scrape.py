@@ -1,10 +1,8 @@
-import billboard
+from billboard import ChartData
 from pylyrics3 import pylyrics3
 
 bill = billboard.ChartData
 pyly = pylyrics3
-
-genres = ['rb_hip_hop', 'rap', 'rock', 'latin', 'country']
 
 
 country_songs = bill('greatest-country-songs', date = None, fetch = True).entries
@@ -16,25 +14,6 @@ rb_hip_hop_songs = bill('greatest-r-b-hip-hop-songs', date = None, fetch = True)
 rap_songs = bill('rap-song', date = None, fetch = True).entries
 
 rock_songs = bill('greatest-of-all-time-pop-songs', date = None, fetch = True).entries
-"""
-def clean_art (artist):
-    if ("Duet" in artist):
-        rest = artist.split("Duet", 1)[0]
-        return rest
-    elif "With" in artist:
-        rest = artist.split("With", 1)[0]
-        print(rest)
-        return rest
-    elif ("Feat" in artist):
-        rest = artist.split("Feat", 1)[0]
-        return rest
-    elif ("Featuring" in artist):
-        rest = artist.split("Featuring", 1)[0]
-        return rest
-
-    else:
-        return artist
-"""
 
 
 def char_look(char, string):
@@ -94,4 +73,3 @@ def create_songs():
     return songs
 
 song_list = create_songs()
-print(len(song_list))
