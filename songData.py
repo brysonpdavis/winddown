@@ -7,7 +7,7 @@
 # :................................................................:
 
 from billboard import ChartData
-from pylyrics import pylyrics3
+from pylyrics3 import pylyrics3
 
 bill = billboard.ChartData
 pyly = pylyrics3
