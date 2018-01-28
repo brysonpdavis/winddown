@@ -1,0 +1,41 @@
+import operator
+from numpy import*
+def smallest_diff(xs):
+    return (min(diff(sort(xs))))
+
+
+
+def smallest_distance(xs):
+    new = sorted(xs.values())
+    want=smallest_diff(new)
+    print(want)
+    main_want=[]
+    acc=0
+    while acc!=len(new) :
+        if (-1*(new[acc]-new[acc+1]))==want:
+            for name,number in xs.items():
+                if number==new[acc] or number==new[acc+1]:              
+                    main_want.append(name)
+            return (main_want)
+        else:
+            pass
+        acc+=1
+
+def best3(xs):
+    new_xs= sorted(xs.items(), key=operator.itemgetter(1)) 
+    acc=0
+    new_dict2={}
+    for key,value in new_xs:
+        if acc==len(new_dict2): 
+            biggest=key
+        if acc<7 : 
+            new_dict2[key]=value
+        else:
+            break
+        acc+=1
+    print(biggest)
+    del new_dict2[biggest]
+    distance=smallest_distance(new_dict2)
+    distance.append(biggest)
+    return distance
+
