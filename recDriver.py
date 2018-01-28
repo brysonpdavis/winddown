@@ -23,7 +23,14 @@ import operator
 
 def analyzeUser():
     return dict(sort_by_value(flatten(PersonalityInsights(username="277d208a-0a15-479f-92cb-feca3385165a", 
-                                  password="UDxJDKdFGQjd").profile(getUserData))))
+                                  password="UDxJDKdFGQjd").profile(outputUserData()))))
+
+print(analyzeUser())
+
+with open('songdata.pkl', 'rb') as f:
+    music_data = pickle.load(f)
+
+
 
 def analyzeMedia(media_list):
     for media in media_list: 
@@ -33,7 +40,9 @@ def analyzeMedia(media_list):
 
 
 #book_data_analyses = analyzeMedia(book_data)
-music_data_analyses = analyzeMedia(outputSongData)
+music_data_analyses = analyzeMedia(music_data)
+
+print(music_data_analyses)
 
 #print(film_data_analyses)
 
@@ -92,6 +101,8 @@ def showSongMatch():
     title, artist, genre
     '''
     return recom(best3(user_analysis), rank_media(film_data_analyses))
+
+#print(showSongMatch())
 
 def showBookMatch():
     '''

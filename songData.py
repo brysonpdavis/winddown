@@ -6,8 +6,10 @@
 # :    and match users with potential media                        :
 # :................................................................:
 
-from billboard import ChartData
-from pylyrics3 import pylyrics3
+import billboard
+#from billboard import ChartData
+import pylyrics3
+import pickle
 
 bill = billboard.ChartData
 pyly = pylyrics3
@@ -31,7 +33,10 @@ def check(artist, title):
 
 
 def get_lyrics (artist, title):
-    return pyly.get_song_lyrics(artist, title)
+    if (pyly.get_song_lyrics(artist, title) == None):
+        return 'a ' * 100
+    else:
+        return (pyly.get_song_lyrics(artist, title) * 2)
 
 
 def outputSongData():
@@ -77,3 +82,6 @@ def outputSongData():
         else:
             pass
     return songs
+
+with open('songdata.pkl', 'wb') as f:
+    pickle.dump(outputSongData(), f)
