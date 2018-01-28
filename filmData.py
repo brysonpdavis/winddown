@@ -1,10 +1,20 @@
+# ..................................................................
+# : Wind Down: Music, Movie, & Book Recs for your Psyche           :
+# : B. Davis, A. M. Rahman, K. Noelsaint, G. Ren | hack@Brown '18  :
+# : winddown/filmData.py                                           :
+# : -- Contains API calls to Watson for user personality insights  :
+# :    and match users with potential media                        :
+# :................................................................:
+
 import json, http.client, operator
 from os.path import join, dirname
 from watson_developer_cloud import PersonalityInsightsV3
 from userData import *
 
+
 # MovieDB Genre Values
 genre_dict = {"action": 28, "adventure": 12, "documentary": 99, "drama": 18, "historical": 36, "horror": 27, "music": 10402, "romance": 10749, "science": 878, "war": 10752}
+
 
 def getGenres(given_text):
     genres = []
@@ -28,6 +38,7 @@ def getGenres(given_text):
             genres.append(genre)
     return (genres)
 
+
 def createMovie(raw_data, genre):
     movie = {}
     movie["title"] = raw_data["original_title"]
@@ -35,6 +46,7 @@ def createMovie(raw_data, genre):
     movie["genre"] = genre
     movie["excerpt"] = raw_data["overview"]
     return movie
+
 
 def getMovies(genres):
     genre_count = {}
@@ -57,6 +69,7 @@ def getMovies(genres):
         movies.append(curr_movie)
 
     return movies
+
 
 def outputFilmData():
     genres = getGenres(outputUserData())
