@@ -1,5 +1,4 @@
 from flask import Flask, render_template
-from flask_pure import Pure
 
 app = Flask(__name__)
 app.config['PURECSS_RESPONSIVE_GRIDS'] = True
