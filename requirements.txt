@@ -7,3 +7,4 @@ Flask-pure
 python-twitter
 pylyrics
 billboard.py
+flask-wtf

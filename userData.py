@@ -9,30 +9,6 @@
 user_string = ""
 import twitter
 
-def get_user_tweets(handle):
-	#The Twitter API credentials
-    twitter_consumer_key = 'w2YWOpLzlH5STiMgDZFuCnqzk'
-    twitter_consumer_secret = 'nhJmbFHCwr7PzRAMaMnhu8BZuLDUW2GqAytDCNGOR6SK7l57v5'
-    twitter_access_token = '927185807630393345-Ofr60iCq3UxcqW5ezFQjirXIMYlAz3O'
-    twitter_access_secret = 'cFE0bEhvf3LAgHLQduCHa0I2DAuP6zhxlc68cIU1dLbUN'
-
-
-    #Invoking the Twitter API
-    twitter_api = twitter.Api(consumer_key=twitter_consumer_key,
-                  consumer_secret=twitter_consumer_secret,
-                  access_token_key=twitter_access_token,
-                  access_token_secret=twitter_access_secret)
-
-
-    #Retrieving the last 200 tweets from a user
-    statuses = twitter_api.GetUserTimeline(screen_name=handle, count=200, include_rts=False)
-
-    text = ""
-    for s in statuses:
-        if (s.lang =='en'):
-                text += str(s.text.encode('utf-8'))
-
-    return text
 
 
 user_string = '''Well, thank you very much, Jim, for this opportunity. I want to thank Governor Romney and the University
@@ -688,8 +664,8 @@ I'd fight every single day on behalf of the American people, the middle class, a
 were striving to get into the middle class. I've kept that promise and if you'll vote for me, then I
 promise I'll fight just as hard in a second term.'''
 
-def outputUserData():
+def outputUserTweets(handle):
 	# user_string += "a" * 10000
-	return get_user_tweets("@yesyoureracist")
+	return get_user_tweets(handle)
 	#return user_string
 

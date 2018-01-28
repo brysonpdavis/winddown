@@ -49,8 +49,10 @@
                   <div class="siimple-box-title"><i class="fa fa-twitter" aria-hidden="true"></i> Tweetalyze</div>
                   <div class="siimple-box-detail">Share your own handle to get personalized suggestions.</div>
                   <div class="siimple-box-detail">
-                      <input type="text" class="siimple-input" placeholder="@POTUS">
-                      <div class="siimple-btn siimple-btn--grey">Analyze</div>
+                    <form method = "POST">
+                      <input type="text" name="Handle" class="siimple-input" placeholder="@POTUS">
+                      <div class="siimple-btn siimple-btn--grey"><input type = "submit" style="display: None;" value="Submit"/>Analyze!</div>
+                    </form>
                   </div>
                 </div>
             </div>
@@ -61,9 +63,9 @@
             <div class="siimple-grid-col siimple-grid-col--3">‌‌ </div>
             <div class="siimple-grid-col siimple-grid-col--6">
                 <div class="siimple-box siimple-box--purple" align="center">
-                  <div class="siimple-box-title">Quiz Analysis</div>
-                  <div class="siimple-box-subtitle">This is the box subtitle</div>
-                  <div class="siimple-box-detail">This is the box detail text</div>
+                  <div class="siimple-box-title">Quiz Yourself</div>
+                  <div class="siimple-btn siimple-btn--grey">Start!</div>
+                  <div class="siimple-box-detail">The inner machinations of your mind are an enigma.</div>
                 </div>
             </div>
             <div class="spacer siimple-grid-col siimple-grid-col--3">‌‌ </div>
@@ -78,6 +80,7 @@
                 <textarea class="siimple-textarea siimple-textarea--fluid" rows="5">
                     Start typing here.
                 </textarea>
+                <div class="siimple-btn siimple-btn--grey">Analyze!</div>
                 </div>
             </div>
             <div class="spacer siimple-grid-col siimple-grid-col--3">‌‌ </div>

@@ -9,7 +9,7 @@
 import json, http.client, operator
 from os.path import join, dirname
 from watson_developer_cloud import PersonalityInsightsV3
-from userData import *
+#from userData import *
 
 
 # MovieDB Genre Values
@@ -70,7 +70,6 @@ def getMovies(genres):
 
     return movies
 
-
-def outputFilmData():
-    genres = getGenres(outputUserData())
+def outputFilmData(user_text):
+    genres = getGenres(user_text)
     return getMovies(genres)

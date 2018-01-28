@@ -81,7 +81,8 @@ def outputSongData():
             songs.append({'title': title, 'misc': artist, 'excerpt': cont, 'genre': "Latin"})
         else:
             pass
-    return songs
+    return songs[100]
 
-with open('songdata.pkl', 'wb') as f:
-    pickle.dump(outputSongData(), f)
+def package_songs():
+    with open('songdata.pkl', 'wb') as f:
+        pickle.dump(outputSongData(), f)

@@ -6,9 +6,9 @@
 # :    and match users with potential media                        :
 # :................................................................:
 
-from userData    import *
+#from userData    import *
+#from songData    import *
 from filmData    import * 
-from songData    import * 
 from bookData    import *
 from utilFuns    import *
 from numpy       import * 
@@ -17,19 +17,18 @@ from random      import choice
 
 from watson_developer_cloud import PersonalityInsightsV2 as PersonalityInsights
 
-import operator
+import operator, pickle
 
 # API Calls for analysis
 
-def analyzeUser():
+def analyzeUser(user_text):
     return dict(sort_by_value(flatten(PersonalityInsights(username="277d208a-0a15-479f-92cb-feca3385165a", 
-                                  password="UDxJDKdFGQjd").profile(outputUserData()))))
+                                  password="UDxJDKdFGQjd").profile(user_text))))
 
-print(analyzeUser())
 
-with open('songdata.pkl', 'rb') as f:
-    music_data = pickle.load(f)
 
+# with open('songdata.pkl', 'rb') as f:
+#     music_data = pickle.load(f)
 
 
 def analyzeMedia(media_list):
@@ -40,9 +39,8 @@ def analyzeMedia(media_list):
 
 
 #book_data_analyses = analyzeMedia(book_data)
-music_data_analyses = analyzeMedia(music_data)
+#music_data_analyses = analyzeMedia(music_data)
 
-print(music_data_analyses)
 
 #print(film_data_analyses)
 
@@ -88,6 +86,7 @@ def recom(user_pref,movies):
     else:
         return new_list[0] 
 
+
 def showFilmMatch():
     '''
     Returns a list of tuples in order of:
@@ -95,18 +94,20 @@ def showFilmMatch():
     '''
     return list(((choice(getFilmData())).items()))
 
-def showSongMatch():
-    '''
-    Returns a list of tuples in order of:
-    title, artist, genre
-    '''
-    return recom(best3(user_analysis), rank_media(film_data_analyses))
+# def showSongMatch(user_input):
+#     '''
+#     Returns a list of tuples in order of:
+#     title, artist, genre
+#     '''
+#     return recom(best3(analyzeUser(user_input)), rank_media(film_data_analyses))
 
 #print(showSongMatch())
 
-def showBookMatch():
+def driver(user_input):
     '''
-    Returns a list of tuples in order of:
-    title, author, genre, synopsis
+    Given user_input,
+    returns results!
     '''
-    return 0
+    out_dict = {}
+    out_dict['Film'] = showFilmMatch()
+#    out_dict['Song'] = showSongMatch(user_input)
