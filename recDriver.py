@@ -1,7 +1,14 @@
+# ..................................................................
+# : Wind Down: Music, Movie, & Book Recs for your Psyche           :
+# : B. Davis, A. M. Rahman, K. Noelsaint, G. Ren | hack@Brown '18  :
+# : winddown/recDriver.py                                          :
+# : -- Contains API calls to Watson for user personality insights  :
+# :    and match users with potential media                        :
+# :................................................................:
 
 from userData    import *
 from filmData    import * 
-from musicData   import * 
+from songData    import * 
 from bookData    import *
 from utilFuns    import *
 from numpy       import * 
@@ -26,7 +33,7 @@ def analyzeMedia(media_list):
 
 
 #book_data_analyses = analyzeMedia(book_data)
-#music_data_analyses = analyzeMedia(music_data)
+music_data_analyses = analyzeMedia(outputSongData)
 
 #print(film_data_analyses)
 
@@ -78,3 +85,17 @@ def showFilmMatch():
     title, date, genre, synopsis
     '''
     return list(((choice(getFilmData())).items()))
+
+def showSongMatch():
+    '''
+    Returns a list of tuples in order of:
+    title, artist, genre
+    '''
+    return recom(best3(user_analysis), rank_media(film_data_analyses))
+
+def showBookMatch():
+    '''
+    Returns a list of tuples in order of:
+    title, author, genre, synopsis
+    '''
+    return 0

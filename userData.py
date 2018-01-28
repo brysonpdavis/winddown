@@ -1,4 +1,11 @@
-#userData.py
+# ..................................................................
+# : Wind Down: Music, Movie, & Book Recs for your Psyche           :
+# : B. Davis, A. M. Rahman, K. Noelsaint, G. Ren | hack@Brown '18  :
+# : winddown/userData.py                                           :
+# : -- Contains API calls to Watson for user personality insights  :
+# :    and match users with potential media                        :
+# :................................................................:
+
 user_string = ""
 import twitter
 
@@ -28,7 +35,7 @@ def get_user_tweets(handle):
     return text
 
 
-user_string = user_text='''Well, thank you very much, Jim, for this opportunity. I want to thank Governor Romney and the University
+user_string = '''Well, thank you very much, Jim, for this opportunity. I want to thank Governor Romney and the University
 of Denver for your hospitality.
 
 There are a lot of points I want to make tonight, but the most important one is that 20 years ago I
@@ -683,7 +690,6 @@ promise I'll fight just as hard in a second term.'''
 
 def outputUserData():
 	# user_string += "a" * 10000
-	
 	return get_user_tweets("@yesyoureracist")
 	#return user_string
 

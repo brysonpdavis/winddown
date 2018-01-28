@@ -1,18 +1,21 @@
+# ..................................................................
+# : Wind Down: Music, Movie, & Book Recs for your Psyche           :
+# : B. Davis, A. M. Rahman, K. Noelsaint, G. Ren | hack@Brown '18  :
+# : winddown/songData.py                                           :
+# : -- Contains API calls to Watson for user personality insights  :
+# :    and match users with potential media                        :
+# :................................................................:
+
 from billboard import ChartData
-from pylyrics3 import pylyrics3
+from pylyrics import pylyrics3
 
 bill = billboard.ChartData
 pyly = pylyrics3
 
-
 country_songs = bill('greatest-country-songs', date = None, fetch = True).entries
-
 latin_songs = bill('greatest-hot-latin-songs', date = None, fetch = True).entries
-
 rb_hip_hop_songs = bill('greatest-r-b-hip-hop-songs', date = None, fetch = True).entries
-
 rap_songs = bill('rap-song', date = None, fetch = True).entries
-
 rock_songs = bill('greatest-of-all-time-pop-songs', date = None, fetch = True).entries
 
 
@@ -22,13 +25,16 @@ def char_look(char, string):
             return True
     return False
 
+
 def check(artist, title):
     return not(("With" in artist) or ("Feat" in artist) or ("Featuring" in artist) or ("&" in artist) or (char_look("/",artist)) or (char_look("/",title)))
+
 
 def get_lyrics (artist, title):
     return pyly.get_song_lyrics(artist, title)
 
-def create_songs():
+
+def outputSongData():
     songs = []
     for song in country_songs:
         artist = song.artist
@@ -71,5 +77,3 @@ def create_songs():
         else:
             pass
     return songs
-
-song_list = create_songs()

@@ -1,3 +1,11 @@
+# ..................................................................
+# : Wind Down: Music, Movie, & Book Recs for your Psyche           :
+# : B. Davis, A. M. Rahman, K. Noelsaint, G. Ren | hack@Brown '18  :
+# : winddown/utilFuns.py                                           :
+# : -- Contains utility functions for parsing through JSON strings,:
+# :    and large dictionaries									   :
+# :................................................................:
+
 import operator
 from numpy import *
 
@@ -60,6 +68,7 @@ def best3(xs):
     distance=smallest_distance(new_dict2)
     distance.append(biggest)
     return distance
+
 
 def best6(xs):
 	'''
