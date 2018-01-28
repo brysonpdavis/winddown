@@ -27,7 +27,7 @@ def getGenres(given_text):
     #movie_script = source.read().replace("\n", "")
 
     profile = personality_insights.profile(
-            outputUserData(), content_type='text/plain',
+           given_text, content_type='text/plain',
             raw_scores=True, consumption_preferences=True)
     preferences = profile["consumption_preferences"][4]["consumption_preferences"]
 

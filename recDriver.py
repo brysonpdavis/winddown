@@ -87,12 +87,12 @@ def recom(user_pref,movies):
         return new_list[0] 
 
 
-def showFilmMatch():
+def showFilmMatch(user_input):
     '''
     Returns a list of tuples in order of:
     title, date, genre, synopsis
     '''
-    return list(((choice(getFilmData())).items()))
+    return list(((choice(outputFilmData(user_input))).items()))
 
 # def showSongMatch(user_input):
 #     '''
@@ -109,5 +109,5 @@ def driver(user_input):
     returns results!
     '''
     out_dict = {}
-    out_dict['Film'] = showFilmMatch()
+    out_dict['Film'] = showFilmMatch(user_input)
 #    out_dict['Song'] = showSongMatch(user_input)
