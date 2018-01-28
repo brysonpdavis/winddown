@@ -41,8 +41,8 @@ def process_handle():
 		user_handle = request.form.get('handle')
 		print(user_handle)
 		result = get_user_tweets(user_handle)
-		print(result)
-		return '''<h1> Your tweets!: {}</h1>'''.format(result)
+		final = driver(result)
+		return render_template("result.html", final=final)
 
 if __name__ == '__main__':
     app.run(debug=True)
