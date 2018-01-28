@@ -19,13 +19,14 @@
     <!-- CSS
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/siimple@3.0.0/dist/siimple.min.css">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="css/documentation.css">
+    <!-- <link rel="stylesheet" href="css/skeleton.css"> -->
 
     <!-- Scripts
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+    <script src="https://use.fontawesome.com/a181577975.js"></script>
 
     <title>{{ author }}'s app</title>
 </head>
@@ -33,12 +34,53 @@
 <body>
     <div class="siimple-navbar">
       <div class="siimple-layout--left">
-        <a class="siimple-navbar-title">My blog name</a>
+        <a class="siimple-navbar-title">Wind ⬇</a>
       </div>
       <div class="siimple-layout--right">
         <a class="siimple-navbar-link">Link 1</a>
         <a class="siimple-navbar-link">Link 2</a>
       </div>
+    </div>
+
+    <div class="siimple-grid" align="center" width="100%">
+        <div class="siimple-grid-row">
+            <div class="siimple-grid-col siimple-grid-col--4 spacer">‌‌ </div>
+            <div class="siimple-grid-col siimple-grid-col--4">
+                <div class="siimple-box siimple-box--green" align="center">
+                  <div class="siimple-box-title"><i class="fa fa-twitter" aria-hidden="true"></i> Twitter</div>
+                  <div class="siimple-box-detail">Give suggestions using someone's tweets.</div>
+                  <div class="siimple-box-detail">
+                      <input type="text" class="siimple-input" placeholder="@POTUS">
+                      <div class="siimple-btn siimple-btn--grey">Analyze</div>
+                  </div>
+                </div>
+            </div>
+            <div class="spacer siimple-grid-col siimple-grid-col--4">‌‌ </div>
+        </div>
+
+        <div class="siimple-grid-row">
+            <div class="siimple-grid-col siimple-grid-col--4 spacer">‌‌ </div>
+            <div class="siimple-grid-col siimple-grid-col--4">
+                <div class="siimple-box siimple-box--blue" align="center">
+                  <div class="siimple-box-title">Paragraph Analysis</div>
+                  <div class="siimple-box-subtitle">This is the box subtitle</div>
+                  <div class="siimple-box-detail">This is the box detail text</div>
+                </div>
+            </div>
+            <div class="spacer siimple-grid-col siimple-grid-col--4">‌‌ </div>
+        </div>
+
+        <div class="siimple-grid-row">
+            <div class="siimple-grid-col siimple-grid-col--4 spacer">‌‌ </div>
+            <div class="siimple-grid-col siimple-grid-col--4">
+                <div class="siimple-box siimple-box--purple" align="center">
+                  <div class="siimple-box-title">Quiz Analysis</div>
+                  <div class="siimple-box-subtitle">This is the box subtitle</div>
+                  <div class="siimple-box-detail">This is the box detail text</div>
+                </div>
+            </div>
+            <div class="spacer siimple-grid-col siimple-grid-col--4">‌‌ </div>
+        </div>
     </div>
     <h2 class="title">Hello {{ name }}!</h2>
 </body>
