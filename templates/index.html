@@ -49,9 +49,9 @@
                   <div class="siimple-box-title"><i class="fa fa-twitter" aria-hidden="true"></i> Tweetalyze</div>
                   <div class="siimple-box-detail">Share your own handle to get personalized suggestions.</div>
                   <div class="siimple-box-detail">
-                    <form method = "POST">
-                      <input type="text" name="Handle" class="siimple-input" placeholder="@POTUS">
-                      <div class="siimple-btn siimple-btn--grey"><input type = "submit" style="display: None;" value="Submit"/>Analyze!</div>
+                    <form action="/result" method = "POST">
+                      <input type="text" name="handle" class="siimple-input" placeholder="@POTUS">
+                      <button class="siimple-btn siimple-btn--grey" type = "submit">Analyze!</button>
                     </form>
                   </div>
                 </div>
