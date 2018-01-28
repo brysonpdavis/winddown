@@ -5,7 +5,7 @@
     <!-- Basic Page Needs
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <meta charset="utf-8">
-    <title>Wind Down</title>
+    <title>{{ handle }}'s Movie Recommendations</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -29,19 +29,9 @@
     <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
     <script src="https://use.fontawesome.com/a181577975.js"></script>
 
-    <title>{{ author }}'s app</title>
 </head>
 
 	<body>
-		<table border = 1>
-			{% for key, value in final.items() %}
-
-				<tr>
-					<th> {{ key }} </th>
-					<td> {{ value }} </td>
-				</tr>
-
-			{% endfor %}
-		</table>
+        {{ final }}
 	</body>
 </html>

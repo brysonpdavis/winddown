@@ -1,11 +1,13 @@
 from flask import Flask, request, render_template
 #from userData import *
 from recDriver import *
+from movie import *
 import twitter
 
 app = Flask(__name__)
 
 def get_user_tweets(handle):
+    print("--------------------")
 	#The Twitter API credentials
     twitter_consumer_key = 'w2YWOpLzlH5STiMgDZFuCnqzk'
     twitter_consumer_secret = 'nhJmbFHCwr7PzRAMaMnhu8BZuLDUW2GqAytDCNGOR6SK7l57v5'
@@ -22,28 +24,24 @@ def get_user_tweets(handle):
 
     #Retrieving the last 200 tweets from a user
     statuses = twitter_api.GetUserTimeline(screen_name=handle, count=200, include_rts=False)
-
     text = ""
     for s in statuses:
-        if (s.lang =='en'):
-                text += str(s.text.encode('utf-8'))
-
+        text += str(s.text.encode('utf-8'))
+        # print(text)
     return text
 
 
 @app.route('/', methods = ['POST', 'GET'])
 def home():
-	return render_template('index.html')
+    return render_template('index.html')
 
 @app.route('/result', methods = ['POST'])
 def process_handle():
-	if request.method == 'POST':
-		user_handle = request.form.get('handle')
-		print(user_handle)
-		result = get_user_tweets(user_handle)
-		print(result)
-		final = driver(result)
-		return render_template("result.html", final=final)
+    if request.method == 'POST':
+        user_handle = request.form.get('handle')
+        result = get_user_tweets(user_handle)
+        movies = get_movie_list(result)
+        return render_template("result.html", handle=user_handle, final=movies)
 
 if __name__ == '__main__':
     app.run(debug=True)
