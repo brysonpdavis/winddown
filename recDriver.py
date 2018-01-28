@@ -6,35 +6,23 @@ from bookData    import *
 from utilFuns    import *
 from numpy       import * 
 from collections import OrderedDict
+from random      import choice
 
 from watson_developer_cloud import PersonalityInsightsV2 as PersonalityInsights
 
 import operator
 
+# API Calls for analysis
 
-user_data = outputUserData()
-film_data = outputFilmData()
-music_data = outputMusicData()
-book_data = outputBookData()
-
-def showFilmMatch():
-    return list(film_data[0].items())[:3]
-
-print(showFilmMatch())
-#This function is used to receive and analyze
-#the last 200 tweets of a Twitter handle using
-#the Watson PI API
-user_analysis = dict(sort_by_value(flatten(PersonalityInsights(username="277d208a-0a15-479f-92cb-feca3385165a", 
-                                  password="UDxJDKdFGQjd").profile(user_data))))
-
-
+def analyzeUser():
+    return dict(sort_by_value(flatten(PersonalityInsights(username="277d208a-0a15-479f-92cb-feca3385165a", 
+                                  password="UDxJDKdFGQjd").profile(getUserData))))
 
 def analyzeMedia(media_list):
     for media in media_list: 
         media["analysis"]=sort_by_value(flatten(PersonalityInsights(username="277d208a-0a15-479f-92cb-feca3385165a", 
                                     password="UDxJDKdFGQjd").profile(media["excerpt"])))
     return media_list
-
 
 
 #book_data_analyses = analyzeMedia(book_data)
@@ -60,28 +48,33 @@ def rank_media(media_analyses):
 
     return media_analyses
 
-#def match_user_media(user_analysis, rankings):
+#----------------------------------------------------------------------------#
+# THE OUTPUT CORNER
+#
 
+'''this returns recomendation given user_pref which 
+is top 3 choices and movies which is list of top 6 movies allwords_frequency
+attributes '''
+def recom(user_pref,movies): 
+    move=[]
+    new_list=[]
+    for i in user_pref:
+        for j in movies:
+            if i not in j:
+                move.append(j)
+    for x in movies:
+        if x not in move:
+            new_list.append(x)
+    if new_list==[]:
+        return "random"
+    elif len(new_list)>1:
+        return random.choice(new_list)
+    else:
+        return new_list[0] 
 
-
-# #Analyze the user's tweets using the Watson PI API
-# #user1_result = analyze(user1_handle)
-# #user2_result = analyze(user2_handle)
-
-# #Flatten the results received from the Watson PI API
-
-# #Compare the results of the Watson PI API by calculating
-# #the distance between traits
-# #compared_results = compare(user1,user2)
-
-# #Sort the results
-# #sorted_results = sorted(compared_results.items(), key=operator.itemgetter(1))
-
-# #Print the results to the user
-# #for keys, value in sorted_results[:5]:
-#     print(keys) ,
-#     print(user1[keys]),
-#     print('->'),
-#     print(user2[keys]),
-#     print('->'),
-#     print(compared_results[keys])
+def showFilmMatch():
+    '''
+    Returns a list of tuples in order of:
+    title, date, genre, synopsis
+    '''
+    return list(((choice(getFilmData())).items()))

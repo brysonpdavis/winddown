@@ -2,6 +2,10 @@ import operator
 from numpy import *
 
 def flatten(orig):
+	'''
+	Flattens the JSON output of the Watson API
+	(Still not as flat as the Earth)
+	'''
     data = {}
     for c in orig['tree']['children']:
         if 'children' in c:
@@ -56,8 +60,11 @@ def best3(xs):
     distance=smallest_distance(new_dict2)
     distance.append(biggest)
     return distance
-    
+
 def best6(xs):
+	'''
+	Returns the top six personality traits of media
+	'''
     new_xs= reversed(sorted(xs.items(), key=operator.itemgetter(1)))
     acc=0
     new_dict2={}
@@ -70,5 +77,15 @@ def best6(xs):
     return new_dict2.keys()
 
 def sort_by_value(dict):
+	'''
+	Returns a dictionary sorted in ascending order of the value in 
+	the (key,value) pair
+	'''
     sorted_dict = sorted(dict.items(), key=operator.itemgetter(1))
     return sorted_dict
+
+
+def locator ( dictionary, xs ):
+    for key, value in dictionary.items():
+        if value==xs:
+            return key
